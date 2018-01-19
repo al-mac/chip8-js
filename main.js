@@ -131,7 +131,6 @@ var main = {
 	init: function() {
 		document.getElementById("rom-file").addEventListener("change", main.handleFile, false);
 		document.onkeydown = function(e) {
-			console.log(e.keyCode);
 			switch(e.keyCode) {
 				case 49: emu.key[0x1] = 1; break;
 				case 50: emu.key[0x2] = 1; break;
