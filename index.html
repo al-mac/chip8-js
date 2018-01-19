@@ -1,0 +1,110 @@
+<html>
+	<head>
+		<title>Chip8 :: AlMac</title>
+		<link rel="stylesheet" type="text/css" href="css.css" />
+	</head>
+	<body>
+		<div id="container">
+			<div id="title"><h1>Chip8 :: AlMac</h1></div>
+			<div class="window">
+				<div class="window-title">Game (<span id="fps-counter">FPS: calculating...</span>)</div>
+				<canvas width="640" height="320" id="game-screen"></canvas>
+			</div>
+			
+			<div class="window">
+				<div class="window-title">Opcodes</div>
+				<div id="opc" class="window-screen"></div>
+			</div>
+			
+			<div class="window">
+				<div class="window-title">Assembly</div>
+				<div id="asm" class="window-screen"></div>
+			</div>
+			
+			<div class="window">
+				<div class="window-title">Stack</div>
+				<div id="stack" class="window-screen">
+					<div id="stack0" class="line">1</div>
+					<div id="stack1" class="line">2</div>
+					<div id="stack2" class="line">3</div>
+					<div id="stack3" class="line">4</div>
+					<div id="stack4" class="line">5</div>
+					<div id="stack5" class="line">6</div>
+					<div id="stack6" class="line">7</div>
+					<div id="stack7" class="line">8</div>
+					<div id="stack8" class="line">9</div>
+					<div id="stack9" class="line">10</div>
+					<div id="stack10" class="line">11</div>
+					<div id="stack11" class="line">12</div>
+					<div id="stack12" class="line">13</div>
+					<div id="stack13" class="line">14</div>
+					<div id="stack14" class="line">15</div>
+					<div id="stack15" class="line">16</div>
+				</div>
+			</div>
+			
+			<div class="window">
+				<div class="window-title">Registers / Keys / Flags</div>
+				<div id="registers" class="window-screen">
+					<div class="line half"><div class="cell">V[0]</div><div id="v0" class="cell"></div></div>
+					<div class="line half"><div class="cell">V[1]</div><div id="v1" class="cell"></div></div>
+					<div class="line half"><div class="cell">V[2]</div><div id="v2" class="cell"></div></div>
+					<div class="line half"><div class="cell">V[3]</div><div id="v3" class="cell"></div></div>
+					<div class="line half"><div class="cell">V[4]</div><div id="v4" class="cell"></div></div>
+					<div class="line half"><div class="cell">V[5]</div><div id="v5" class="cell"></div></div>
+					<div class="line half"><div class="cell">V[6]</div><div id="v6" class="cell"></div></div>
+					<div class="line half"><div class="cell">V[7]</div><div id="v7" class="cell"></div></div>
+					<div class="line half"><div class="cell">V[8]</div><div id="v8" class="cell"></div></div>
+					<div class="line half"><div class="cell">V[9]</div><div id="v9" class="cell"></div></div>
+					<div class="line half"><div class="cell">V[A]</div><div id="v10" class="cell"></div></div>
+					<div class="line half"><div class="cell">V[B]</div><div id="v11" class="cell"></div></div>
+					<div class="line half"><div class="cell">V[C]</div><div id="v12" class="cell"></div></div>
+					<div class="line half"><div class="cell">V[D]</div><div id="v13" class="cell"></div></div>
+					<div class="line half"><div class="cell">V[E]</div><div id="v14" class="cell"></div></div>
+					<div class="line half"><div class="cell">V[F]</div><div id="v15" class="cell"></div></div>
+					<div class="line half">&nbsp;</div>
+					<div class="line half">&nbsp;</div>
+					<div class="line half"><div class="cell">K[0]</div><div id="k0" class="cell"></div></div>
+					<div class="line half"><div class="cell">K[1]</div><div id="k1" class="cell"></div></div>
+					<div class="line half"><div class="cell">K[2]</div><div id="k2" class="cell"></div></div>
+					<div class="line half"><div class="cell">K[3]</div><div id="k3" class="cell"></div></div>
+					<div class="line half"><div class="cell">K[4]</div><div id="k4" class="cell"></div></div>
+					<div class="line half"><div class="cell">K[5]</div><div id="k5" class="cell"></div></div>
+					<div class="line half"><div class="cell">K[6]</div><div id="k6" class="cell"></div></div>
+					<div class="line half"><div class="cell">K[7]</div><div id="k7" class="cell"></div></div>
+					<div class="line half"><div class="cell">K[8]</div><div id="k8" class="cell"></div></div>
+					<div class="line half"><div class="cell">K[9]</div><div id="k9" class="cell"></div></div>
+					<div class="line half"><div class="cell">K[A]</div><div id="k10" class="cell"></div></div>
+					<div class="line half"><div class="cell">K[B]</div><div id="k11" class="cell"></div></div>
+					<div class="line half"><div class="cell">K[C]</div><div id="k12" class="cell"></div></div>
+					<div class="line half"><div class="cell">K[D]</div><div id="k13" class="cell"></div></div>
+					<div class="line half"><div class="cell">K[E]</div><div id="k14" class="cell"></div></div>
+					<div class="line half"><div class="cell">K[F]</div><div id="k15" class="cell"></div></div>
+					<div class="line half">&nbsp;</div>
+					<div class="line half">&nbsp;</div>
+					<div class="line half"><div class="cell">I</div><div id="fI" class="cell">1</div></div>
+					<div class="line half"><div class="cell">pc</div><div id="fpc" class="cell">1</div></div>
+					<div class="line half"><div class="cell">snd</div><div id="fsnd" class="cell">1</div></div>
+					<div class="line half"><div class="cell">dly</div><div id="fdly" class="cell">1</div></div>
+					<div class="line half"><div class="cell">sp</div><div id="fsp" class="cell">1</div></div>
+				</div>
+			</div>
+			
+			<div class="window">
+				<div class="window-title">Options</div>
+				<div id="rom" class="window-screen">
+					<input type="file" style="display:none;" id="rom-file" />
+					<a class="btn" href="javascript:void(0)" onclick="document.getElementById('rom-file').click();">Load ROM (L)</a>
+					<a class="btn" href="javascript:void(0)" onclick="chip8.paused = !chip8.paused;">Pause / Resume (P)</a>
+					<a class="btn" href="javascript:void(0)" onclick="step = true;">Step (O)</a>
+					<a class="btn" href="javascript:void(0)" onclick="reset(chip8.rom);">Reset (K)</a>
+					<embed src="beep.wav" autostart="false" width="0" height="0" id="beep-sound" enablejavascript="true">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="dasm.js"></script>
+	<script type="text/javascript" src="gfx.js"></script>
+	<script type="text/javascript" src="chip8.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</html>

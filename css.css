@@ -1,0 +1,58 @@
+* { margin:0;padding:0;border:0; }
+html, body { background:#046862; font-family:"Courier New", Courier, monospace; color:#FFF; height:100%; }
+#container { width:1300px; margin:0 auto; height:100%; }
+#title { text-align:center; border-bottom:1px dotted #FFF; margin-bottom: 10px; }
+
+.window { border:1px solid #08ddd1; float:left; margin: 4px; }
+.window-title { height:20px; background:#024743; border-bottom:1px solid #08ddd1; line-height:10px; font-weight:bold; box-sizing:border-box; padding:6px; }
+.window-screen { font-size:12px;box-sizing:border-box;position:relative;background:#004440;padding:4px; }
+
+/*window contents*/
+#game-screen { font-size:12px; background:#000; position:relative; overflow:hidden; }
+#asm, #opc { width:260px; height:320px; overflow-y:scroll; }
+#registers { width:370px; height:300px; }
+#stack { width:100px; height:320px; }
+#rom { width:204px; height:164px; }
+
+/* text and code window contents */
+.line { padding-left:10px; }
+.highlighted { background: #00f9eb; color:#000; }
+.half { float:left; width: calc(50% - 5px); box-sizing:border-box; }
+.cell { float:left; width: calc(50% - 5px); box-sizing:border-box; border-right:1px solid #08ddd1; padding-left:2px; }
+.sep { border-bottom:1px solid #08ddd1; float:left; }
+
+::-webkit-scrollbar {width: 8px;}
+::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);-webkit-border-radius: 10px;border-radius: 10px;}
+::-webkit-scrollbar-thumb { -webkit-border-radius:10px;border-radius:10px;background: #00f9eb; -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); }
+::-webkit-scrollbar-thumb:window-inactive { background: #00f9eb; }
+
+a.btn {
+	width:90%;
+	margin: auto;
+	display:block;
+	height:26px;
+	font-size:16px;
+	background:#046862;
+	color:#FFF;
+	font-family:"Courier New", Courier, monospace;
+	box-shadow: 2px 2px 2px #00f9eb;
+	border-radius:8px;
+	margin-bottom:10px;
+	margin-top:10px;
+	outline: none;
+	position:relative;
+	line-height:26px;
+	text-decoration:none;
+	text-align:center;
+	font-size:12px;
+	font-weight:bold;
+}
+
+a.btn:hover {
+	cursor:pointer;
+}
+a.btn:active {
+	top:2px;
+	left:2px;
+	box-shadow: none;
+}
